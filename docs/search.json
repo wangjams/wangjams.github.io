@@ -4,13 +4,34 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site"
+    "text": "I grew up in Vancouver, BC, and studied Environmental Science at UBC, graduating in 2026. Along the way I worked as an Impact Assessment Officer with Environment and Climate Change Canada and as a Student Research Assistant with Agriculture and Agri-Food Canada, where I spent a lot of time in the field — soil sampling, gas analysis, and processing samples in the lab. That work gave me a good feel for how messy real environmental data can be before it’s ready for any kind of analysis."
+  },
+  {
+    "objectID": "about.html#background",
+    "href": "about.html#background",
+    "title": "About",
+    "section": "",
+    "text": "I grew up in Vancouver, BC, and studied Environmental Science at UBC, graduating in 2026. Along the way I worked as an Impact Assessment Officer with Environment and Climate Change Canada and as a Student Research Assistant with Agriculture and Agri-Food Canada, where I spent a lot of time in the field — soil sampling, gas analysis, and processing samples in the lab. That work gave me a good feel for how messy real environmental data can be before it’s ready for any kind of analysis."
+  },
+  {
+    "objectID": "about.html#why-data-science",
+    "href": "about.html#why-data-science",
+    "title": "About",
+    "section": "Why Data Science",
+    "text": "Why Data Science\nDuring my degree, courses like Hydrology and GIS were the ones I looked forward to most — not because of the environmental content alone, but because of the tools: R, RStudio, and working with data sets to answer real questions. I noticed I was more excited about the data analysis than the field component, which pushed me to look for a program that would let me build that side of my skill set properly. The MDS program seemed like the perfect place to gain more technical skills before jumping into the workforce."
+  },
+  {
+    "objectID": "about.html#outside-of-data-science",
+    "href": "about.html#outside-of-data-science",
+    "title": "About",
+    "section": "Outside of Data Science",
+    "text": "Outside of Data Science\nOutside of data science, I’m an avid board games fan — always up for a new strategy game or getting a group together for game night. On weekends you’ll often find me trying new restaurants around Vancouver, always on the hunt for the next good food spot!"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Personal",
+    "title": "James Wang",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "My name is James and I am part of the UBC MDS cohort of 26/27. I’ve recently completed my Bachelor of Science in Environmental Sciences in 2026 and I’m now attending the UBC MDS program. I am hoping to combine my domain expertise in Environmental Science with the technical expertise from MDS to land an environmental analytics role after graduation."
   }
 ]

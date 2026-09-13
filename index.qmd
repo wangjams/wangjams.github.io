@@ -1,7 +1,7 @@
 ---
-title: "Personal"
+title: "James Wang"
+about:
+  template: jolla
+  image: images/beach.jpeg
 ---
-
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+My name is James and I am part of the UBC MDS cohort of 26/27. I've recently completed my Bachelor of Science in Environmental Sciences in 2026 and I'm now attending the UBC MDS program. I am hoping to combine my domain expertise in Environmental Science with the technical expertise from MDS to land an environmental analytics role after graduation.

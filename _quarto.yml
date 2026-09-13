@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Personal"
+  title: "James Wang"
   navbar:
     left:
       - href: index.qmd
