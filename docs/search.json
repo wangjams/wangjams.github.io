@@ -1,5 +1,26 @@
 [
   {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "My first weeks in MDS\n\n\n\n\n\n\n\n\nSep 13, 2026\n\n\nJames Wang\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "James Wang",
+    "section": "",
+    "text": "My name is James and I am part of the UBC MDS cohort of 26/27. I’ve recently completed my Bachelor of Science in Environmental Sciences in 2026 and I’m now attending the UBC MDS program. I am hoping to combine my domain expertise in Environmental Science with the technical expertise from MDS to land an environmental analytics role after graduation."
+  },
+  {
+    "objectID": "posts/first-weeks/index.html",
+    "href": "posts/first-weeks/index.html",
+    "title": "My first weeks in MDS",
+    "section": "",
+    "text": "Orientation week kicked off with meeting the rest of my cohort, starting with the people at my orientation table. After the formal sessions wrapped up, a few of us grabbed ice cream nearby, which turned out to be a great way to start putting names to faces before classes even began.\nThe first week of actual classes was a lot to take in. Between new course content and figuring out how everything gets submitted, I felt a bit overwhelmed at times. That said, I managed to get through all my assignments for the week, which felt like a solid first win.\nHeading into the next week, I’m shifting focus toward prepping for upcoming quizzes. It’s a good reminder that MDS moves fast, so staying a little ahead rather than catching up after the fact will probably be the theme for the rest of the term.\n\n\n\nAfter ice cream with my orientation group."
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -26,12 +47,5 @@
     "title": "About",
     "section": "Outside of Data Science",
     "text": "Outside of Data Science\nOutside of data science, I’m an avid board games fan — always up for a new strategy game or getting a group together for game night. On weekends you’ll often find me trying new restaurants around Vancouver, always on the hunt for the next good food spot!"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "James Wang",
-    "section": "",
-    "text": "My name is James and I am part of the UBC MDS cohort of 26/27. I’ve recently completed my Bachelor of Science in Environmental Sciences in 2026 and I’m now attending the UBC MDS program. I am hoping to combine my domain expertise in Environmental Science with the technical expertise from MDS to land an environmental analytics role after graduation."
   }
 ]
