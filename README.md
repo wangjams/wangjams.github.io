@@ -49,10 +49,6 @@ through `uv run`, so that both the Python and R environments are used.
 ## Output
 
 The built site is written to `docs/`.
-To view it locally, open `docs/index.html` in a browser
-(on macOS: `open docs/index.html`),
-or run `uv run quarto preview` for a live local server.
-
 To open it locally, from the top level of the repository:
 
 ```bash
