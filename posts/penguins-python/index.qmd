@@ -4,19 +4,23 @@ author: "James Wang"
 date: 2026-09-23
 ---
 
+## Data
+
 Data: [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/),
 Palmer Station Antarctica LTER. Licence: CC0.
 Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago
 (Antarctica) penguin data. doi: 10.5281/zenodo.3960218.
 
+## Analysis
+
+In this post, I will examine whether the three penguin species in the Palmer Archipelago differ in size. The Palmer Penguins dataset contains 344 records of penguins from three species across three Antarctic islands, which I will use to compare their body mass. Below I import the necessary libraries and load the dataset:
+
 ```{python}
 #| label: setup
 #| warning: false
-import sys
 import pandas as pd
 import matplotlib.pyplot as plt
 from palmerpenguins import load_penguins
-print(sys.executable)
 ```
 
 ```{python}
@@ -25,4 +29,45 @@ penguins = load_penguins()
 penguins.head()
 ```
 
-Prose:
+Each row is one penguin. The columns record its species, island, bill and flipper measurements, body mass in grams, sex, and the year it was measured.
+
+```{python}
+#| label: clean-data
+print(f"Rows before cleaning: {len(penguins)}")
+print(penguins["body_mass_g"].isna().sum(), "rows are missing body mass")
+clean = penguins.dropna(subset=["body_mass_g"])
+print(f"Rows after cleaning: {len(clean)}")
+```
+
+Because two penguins have no body mass recorded, I dropped them. Everything below uses the remaining 342 penguins.
+
+```{python}
+#| label: summary-table
+summary = (
+    clean
+    .groupby("species")["body_mass_g"]
+    .agg(["count", "mean", "std"])
+    .round(1)
+)
+summary
+```
+
+Gentoo penguins are clearly the heaviest, averaging about 5,076 g. Adelie and Chinstrap penguins are much lighter and very similar to each other, at roughly 3,700 g and 3,733 g. That means a typical Gentoo is around 1,300 g, or about a third, heavier than the other two species.
+
+```{python}
+#| label: fig-mass-by-species
+#| fig-cap: "Body mass of penguins by species."
+species = sorted(clean["species"].unique())
+fig, ax = plt.subplots()
+ax.boxplot([clean.loc[clean["species"] == s, "body_mass_g"] for s in species])
+ax.set_xticks(range(1, len(species) + 1), species)
+ax.set_xlabel("Species")
+ax.set_ylabel("Body mass (g)")
+plt.show()
+```
+
+The box plot shows the same pattern and adds the spread. The Adelie and Chinstrap boxes overlap almost completely, while the Gentoo box sits well above both, with little overlap. So the difference isn't just in the averages; most individual Gentoos are heavier than most individual penguins of the other species.
+
+## Conclusion
+
+Body mass separates the species into two groups: Gentoo penguins, which are much heavier, and Adelie and Chinstrap penguins, which are about the same weight. The difference is large compared to the variation within each species. A natural next step would be to check whether this holds for both sexes, since males tend to be heavier than females.

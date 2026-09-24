@@ -25,7 +25,28 @@
     "href": "posts/penguins-python/index.html",
     "title": "Penguins in Python",
     "section": "",
-    "text": "Data: Palmer Penguins, Palmer Station Antarctica LTER. Licence: CC0. Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. doi: 10.5281/zenodo.3960218.\n\nimport sys\nimport pandas as pd\nimport matplotlib.pyplot as plt\nfrom palmerpenguins import load_penguins\nprint(sys.executable)\n\n/Users/james/wangjams.github.io/.venv/bin/python3\n\n\n\npenguins = load_penguins()\npenguins.head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007\n\n\n\n\n\n\n\nProse:"
+    "text": "Data: Palmer Penguins, Palmer Station Antarctica LTER. Licence: CC0. Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. doi: 10.5281/zenodo.3960218."
+  },
+  {
+    "objectID": "posts/penguins-python/index.html#data",
+    "href": "posts/penguins-python/index.html#data",
+    "title": "Penguins in Python",
+    "section": "",
+    "text": "Data: Palmer Penguins, Palmer Station Antarctica LTER. Licence: CC0. Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. doi: 10.5281/zenodo.3960218."
+  },
+  {
+    "objectID": "posts/penguins-python/index.html#analysis",
+    "href": "posts/penguins-python/index.html#analysis",
+    "title": "Penguins in Python",
+    "section": "Analysis",
+    "text": "Analysis\nIn this post, I will examine whether the three penguin species in the Palmer Archipelago differ in size. The Palmer Penguins dataset contains 344 records of penguins from three species across three Antarctic islands, which I will use to compare their body mass. Below I import the necessary libraries and load the dataset:\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nfrom palmerpenguins import load_penguins\n\n\npenguins = load_penguins()\npenguins.head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007\n\n\n\n\n\n\n\nEach row is one penguin. The columns record its species, island, bill and flipper measurements, body mass in grams, sex, and the year it was measured.\n\nprint(f\"Rows before cleaning: {len(penguins)}\")\nprint(penguins[\"body_mass_g\"].isna().sum(), \"rows are missing body mass\")\nclean = penguins.dropna(subset=[\"body_mass_g\"])\nprint(f\"Rows after cleaning: {len(clean)}\")\n\nRows before cleaning: 344\n2 rows are missing body mass\nRows after cleaning: 342\n\n\nBecause two penguins have no body mass recorded, I dropped them. Everything below uses the remaining 342 penguins.\n\nsummary = (\n    clean\n    .groupby(\"species\")[\"body_mass_g\"]\n    .agg([\"count\", \"mean\", \"std\"])\n    .round(1)\n)\nsummary\n\n\n\n\n\n\n\n\ncount\nmean\nstd\n\n\nspecies\n\n\n\n\n\n\n\nAdelie\n151\n3700.7\n458.6\n\n\nChinstrap\n68\n3733.1\n384.3\n\n\nGentoo\n123\n5076.0\n504.1\n\n\n\n\n\n\n\nGentoo penguins are clearly the heaviest, averaging about 5,076 g. Adelie and Chinstrap penguins are much lighter and very similar to each other, at roughly 3,700 g and 3,733 g. That means a typical Gentoo is around 1,300 g, or about a third, heavier than the other two species.\n\nspecies = sorted(clean[\"species\"].unique())\nfig, ax = plt.subplots()\nax.boxplot([clean.loc[clean[\"species\"] == s, \"body_mass_g\"] for s in species])\nax.set_xticks(range(1, len(species) + 1), species)\nax.set_xlabel(\"Species\")\nax.set_ylabel(\"Body mass (g)\")\nplt.show()\n\n\n\n\n\n\n\nFigure 1: Body mass of penguins by species.\n\n\n\n\n\nThe box plot shows the same pattern and adds the spread. The Adelie and Chinstrap boxes overlap almost completely, while the Gentoo box sits well above both, with little overlap. So the difference isn’t just in the averages; most individual Gentoos are heavier than most individual penguins of the other species."
+  },
+  {
+    "objectID": "posts/penguins-python/index.html#conclusion",
+    "href": "posts/penguins-python/index.html#conclusion",
+    "title": "Penguins in Python",
+    "section": "Conclusion",
+    "text": "Conclusion\nBody mass separates the species into two groups: Gentoo penguins, which are much heavier, and Adelie and Chinstrap penguins, which are about the same weight. The difference is large compared to the variation within each species. A natural next step would be to check whether this holds for both sexes, since males tend to be heavier than females."
   },
   {
     "objectID": "about.html",
