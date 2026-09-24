@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "My first weeks in MDS\n\n\n\n\n\n\n\n\nSep 13, 2026\n\n\nJames Wang\n\n\n\n\n\nNo matching items"
+    "text": "Penguins in Python\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nJames Wang\n\n\n\n\n\n\n\n\n\n\n\n\nMy first weeks in MDS\n\n\n\n\n\n\n\n\nSep 13, 2026\n\n\nJames Wang\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -19,6 +19,13 @@
     "title": "My first weeks in MDS",
     "section": "",
     "text": "Orientation week kicked off with meeting the rest of my cohort, starting with the people at my orientation table. After the formal sessions wrapped up, a few of us grabbed ice cream nearby, which turned out to be a great way to start putting names to faces before classes even began.\nThe first week of actual classes was a lot to take in. Between new course content and figuring out how everything gets submitted, I felt a bit overwhelmed at times. That said, I managed to get through all my assignments for the week, which felt like a solid first win.\nHeading into the next week, I’m shifting focus toward prepping for upcoming quizzes. It’s a good reminder that MDS moves fast, so staying a little ahead rather than catching up after the fact will probably be the theme for the rest of the term.\n\n\n\nAfter ice cream with my orientation group."
+  },
+  {
+    "objectID": "posts/penguins-python/index.html",
+    "href": "posts/penguins-python/index.html",
+    "title": "Penguins in Python",
+    "section": "",
+    "text": "Data: Palmer Penguins, Palmer Station Antarctica LTER. Licence: CC0. Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. doi: 10.5281/zenodo.3960218.\n\nimport sys\nimport pandas as pd\nimport matplotlib.pyplot as plt\nfrom palmerpenguins import load_penguins\nprint(sys.executable)\n\n/Users/james/wangjams.github.io/.venv/bin/python3\n\n\n\npenguins = load_penguins()\npenguins.head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007\n\n\n\n\n\n\n\nProse:"
   },
   {
     "objectID": "about.html",
