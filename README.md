@@ -27,7 +27,7 @@ uv sync
 ```
 
 Then start R in the same folder by typing `R` in the terminal.
-In the R console, run:
+In the R console, run one by one:
 
 ```r
 renv::restore()
@@ -52,6 +52,25 @@ The built site is written to `docs/`.
 To view it locally, open `docs/index.html` in a browser
 (on macOS: `open docs/index.html`),
 or run `uv run quarto preview` for a live local server.
+
+To open it locally, from the top level of the repository:
+
+```bash
+# macOS
+open docs/index.html
+
+# Windows (Git Bash)
+start docs/index.html
+
+# Linux
+xdg-open docs/index.html
+```
+
+Or run a live local server, which opens the site in your browser:
+
+```bash
+uv run quarto preview
+```
 
 ## Data
 
