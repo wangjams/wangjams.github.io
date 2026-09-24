@@ -1,0 +1,78 @@
+---
+title: "Penguins in R"
+author: "James Wang"
+date: 2026-09-23
+---
+
+## Data
+
+Data: [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/),
+Palmer Station Antarctica LTER. Licence: CC0.
+Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago
+(Antarctica) penguin data. doi: 10.5281/zenodo.3960218.
+
+## Analysis
+
+In this post, I repeat the analysis from my [Python post](../penguins-python/index.qmd), this time in R.
+
+The question is the same: do the three penguin species in the Palmer Archipelago differ in size? The Palmer Penguins dataset contains 344 records of penguins from three species across three Antarctic islands, which I will use to compare their body mass. I use dplyr to prepare the data and ggplot2 to plot it.
+
+Below I load the necessary packages. Loading dplyr prints messages about functions it masks from base R, so this chunk hides messages and warnings to keep the page clean.
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+library(dplyr)
+library(ggplot2)
+library(palmerpenguins)
+library(knitr)
+```
+
+Next I load the dataset. Recent versions of R include a built-in `penguins` dataset with different column names, so I take the data explicitly from the palmerpenguins package.
+
+```{r}
+#| label: load-data
+penguins <- palmerpenguins::penguins
+head(penguins)
+```
+
+Each row is one penguin. The columns record its species, island, bill and flipper measurements, body mass in grams, sex, and the year it was measured.
+
+```{r}
+#| label: clean-data
+cat("Rows before cleaning:", nrow(penguins), "\n")
+cat(sum(is.na(penguins$body_mass_g)), "rows are missing body mass\n")
+clean <- penguins |> filter(!is.na(body_mass_g))
+cat("Rows after cleaning:", nrow(clean), "\n")
+```
+
+Because two penguins have no body mass recorded, I dropped them. Everything below uses the remaining 342 penguins.
+
+```{r}
+#| label: summary-table
+summary_table <- clean |>
+  group_by(species) |>
+  summarise(
+    count = n(),
+    mean = round(mean(body_mass_g), 1),
+    sd = round(sd(body_mass_g), 1)
+  )
+kable(summary_table)
+```
+
+Gentoo penguins are clearly the heaviest, averaging about 5,076 g. Adelie and Chinstrap penguins are much lighter and very similar to each other, at roughly 3,700 g and 3,733 g. That means a typical Gentoo is around 1,300 g, or about a third, heavier than the other two species. These numbers match the Python version exactly, which is a good sign that both analyses are doing the same thing.
+
+```{r}
+#| label: fig-mass-by-species-r
+#| fig-cap: "Body mass of penguins by species."
+ggplot(clean, aes(x = species, y = body_mass_g)) +
+  geom_boxplot() +
+  labs(x = "Species", y = "Body mass (g)")
+```
+
+The box plot in @fig-mass-by-species-r shows the same pattern and adds the spread. The Adelie and Chinstrap boxes overlap almost completely, while the Gentoo box sits well above both, with little overlap. So the difference isn't just in the averages; most individual Gentoos are heavier than most individual penguins of the other species.
+
+## Conclusion
+
+Body mass separates the species into two groups: Gentoo penguins, which are much heavier, and Adelie and Chinstrap penguins, which are about the same weight. The difference is large compared to the variation within each species. Doing the analysis in R gave the same results as in Python, with dplyr and ggplot2 taking the place of pandas and matplotlib. A natural next step would be to check whether this holds for both sexes, since males tend to be heavier than females.
